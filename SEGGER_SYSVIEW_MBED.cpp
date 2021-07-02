@@ -27,7 +27,6 @@ static void sendTaskList(void)
 {
     static osThreadId_t threads[32];
 
-    osKernelLock();
     auto thread_n = osThreadEnumerate(threads, sizeof(threads) / sizeof(osThreadId_t));
 
     for (uint32_t i = 0; i < thread_n; i++)
@@ -44,7 +43,6 @@ static void sendTaskList(void)
 
         SEGGER_SYSVIEW_SendTaskInfo(&info);
     }
-    osKernelUnlock();
 }
 
 static uint64_t getTime()
