@@ -8,8 +8,6 @@ target_sources(
         ${SYSTEMVIEW_SOURCE_PATH}/SEGGER/SEGGER_SYSVIEW.c
         ${SYSTEMVIEW_SOURCE_PATH}/SEGGER/SEGGER_RTT.c
         ${SYSTEMVIEW_SOURCE_PATH}/SEGGER/SEGGER_RTT_ASM_ARMv7M.S
-        SEGGER_SYSVIEW_MBED.cpp
-        SEGGER_RTX_Events.c
 )
 
 target_include_directories(
@@ -23,8 +21,7 @@ target_include_directories(
 target_link_libraries(
     mbed-systemview
     INTERFACE
-        mbed-rtos
-        mbed-core
+        mbed-baremetal
 )
 
 # Core should not sleep when using SystemView
